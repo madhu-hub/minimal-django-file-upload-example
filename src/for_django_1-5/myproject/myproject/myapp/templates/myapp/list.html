@@ -58,21 +58,7 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">
-      <!-- List of uploaded documents -->
-		{% if documents %}
-			<ul>
-			{% for document in documents %}
-				<li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
-			{% endfor %}
-			</ul>
-		{% else %}
-			<p>No documents.</p>
-		{% endif %}
-	</p>
-      </div>
-		<!-- Upload form. Note enctype attribute! -->
+      	<!-- Upload form. Note enctype attribute! -->
 		<form action="{% url "list" %}" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
 			<p>{{ form.non_field_errors }}</p>
@@ -83,6 +69,21 @@
 			</p>
 			<p><button type="submit" class="btn btn-danger">Upload</button></p>
 		</form>
+        <h1>File Repository</h1>
+        <p class="lead">
+      <!-- List of uploaded documents -->
+		{% if documents %}
+			<ul>
+			{% for document in documents %}
+				<a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a>
+			{% endfor %}
+			</ul>
+		{% else %}
+			<p>No documents.</p>
+		{% endif %}
+	</p>
+      </div>
+	
 
     </div><!-- /.container -->
 </body></html>
