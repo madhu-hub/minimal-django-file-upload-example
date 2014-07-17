@@ -59,8 +59,7 @@
 
       <div class="starter-template">
         <h1>Bootstrap starter template</h1>
-        <p class="lead"></p>
-      </div>
+        <p class="lead">
       <!-- List of uploaded documents -->
 		{% if documents %}
 			<ul>
@@ -71,7 +70,8 @@
 		{% else %}
 			<p>No documents.</p>
 		{% endif %}
-
+	</p>
+      </div>
 		<!-- Upload form. Note enctype attribute! -->
 		<form action="{% url "list" %}" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
